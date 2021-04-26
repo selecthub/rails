@@ -37,27 +37,27 @@ class Numeric
   alias :second :seconds
 
   def minutes
-    ActiveSupport::Duration.new(self * 60, [[:seconds, self * 60]])
+    ActiveSupport::Duration.new(60 * self, [[:seconds, self * 60]])
   end
   alias :minute :minutes
 
   def hours
-    ActiveSupport::Duration.new(self * 3600, [[:seconds, self * 3600]])
+    ActiveSupport::Duration.new(3600 * self, [[:seconds, self * 3600]])
   end
   alias :hour :hours
 
   def days
-    ActiveSupport::Duration.new(self * 24.hours, [[:days, self]])
+    ActiveSupport::Duration.new(24.hours * self, [[:days, self]])
   end
   alias :day :days
 
   def weeks
-    ActiveSupport::Duration.new(self * 7.days, [[:days, self * 7]])
+    ActiveSupport::Duration.new(7.days * self, [[:days, self * 7]])
   end
   alias :week :weeks
 
   def fortnights
-    ActiveSupport::Duration.new(self * 2.weeks, [[:days, self * 14]])
+    ActiveSupport::Duration.new(2.weeks * self, [[:days, self * 14]])
   end
   alias :fortnight :fortnights
 
